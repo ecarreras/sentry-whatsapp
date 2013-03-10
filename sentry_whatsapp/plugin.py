@@ -54,8 +54,8 @@ class WhatsappMessage(Plugin):
         ]))
 
     def post_process(self, group, event, is_new, is_sample, **kwargs):
-        #if not is_new or not self.is_configured(event.project):
-        #    return
+        if not is_new or not self.is_configured(event.project):
+            return
         link = self.get_group_url(group)
         message_format = '[%s] %s (%s)'
         message = message_format % (event.server_name, event.message, link)
