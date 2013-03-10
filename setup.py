@@ -26,7 +26,7 @@ install_requires = [
 
 setup(
     name='sentry-whatsapp',
-    version='0.1.2',
+    version='0.1.3',
     author='Eduard Carreras',
     author_email='ecarreras@gisce.net',
     url='https://github.com/ecarreras/sentry-whatsapp',
