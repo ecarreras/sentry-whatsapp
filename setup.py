@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-sentry-irc
+sentry-whatsapp
 ==============
 
 An extension for Sentry which integrates with Whatsapp�. It will send
