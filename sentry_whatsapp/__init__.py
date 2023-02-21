@@ -25,15 +25,17 @@ class WhatsappSender(object):
         self.login = login
         self.password = base64.b64decode(bytes(password.encode('utf-8')))
         self.done = False
+        self.timeout = 30
 
     def send(self, phone, message):
+        start = time.time()
         if '-' in phone:
             self.jid = "%s@g.us" % phone
         else:
             self.jid = "%s@s.whatsapp.net" % phone
         self.message = message
         self.methods.call("auth_login", (self.login, self.password))
-        while not self.done:
+        while not self.done and (time.time() - start) < self.timeout:
             time.sleep(0.5)
         print("WA: Done.")
 
@@ -43,4 +45,5 @@ class WhatsappSender(object):
         print("WA: Sent!")
 
     def onAuthFailed(self, username, err):
+        self.done = True
         print("Auth Failed!")
